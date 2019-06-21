@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="tips_not_wifi">شما در حال حاضر از شبکه تلفن همراه استفاده می کنید، بازیکن همچنان به مصرف ترافیک ادامه خواهد داد</string>
+    <string name="tips_not_wifi_confirm">خلاصه</string>
+    <string name="tips_not_wifi_cancel">توقف بازی</string>
+    <string name="no_url">نشانی اینترنتی نیست</string>
+    <string name="replay">بازپخش</string>
+    <string name="click_to_restart">برای دوباره امتحان کلیک کنید</string>
+    <string name="video_loading_faild">بارگیری ویدیو انجام نشد</string>
+</resources>

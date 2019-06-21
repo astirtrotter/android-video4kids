@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="@dimen/margin_3.5x"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_0.5x"
+        android:src="@drawable/ic_back"
+        android:tint="#736b6b"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <EditText
+        android:id="@+id/searchView"
+        android:layout_width="@dimen/margin_18x"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:layout_margin="@dimen/margin_0.5x"
+        android:background="@drawable/search_rectangle_box"
+        android:padding="@dimen/margin_2"
+        app:layout_constraintEnd_toStartOf="@+id/searchtext"
+        app:layout_constraintStart_toEndOf="@+id/img_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:text="search"
+        android:padding="@dimen/margin_0.5x"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_1x"
+        android:layout_margin="@dimen/margin_0.5x"
+        android:background="@color/black_50"
+        android:id="@+id/searchtext"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchView"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black_50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

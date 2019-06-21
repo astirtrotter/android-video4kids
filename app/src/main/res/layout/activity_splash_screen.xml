@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/music_bg"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="@dimen/margin_15x"
+        android:layout_height="@dimen/margin_15x"
+        android:src="@drawable/cartoon_logo"
+        android:id="@+id/logotext"
+        android:layout_marginBottom="@dimen/margin_15x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/app_logo_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/short_video_archive"
+        android:textSize="@dimen/margin_1.5x"
+        android:id="@+id/subtext"
+        android:textColor="@color/black_text_color"
+        android:layout_margin="@dimen/margin_0.5x"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/logotext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_icon_ar_name"
+        android:textSize="@dimen/margin_1.3x"
+        android:drawablePadding="@dimen/margin_0.5x"
+        android:drawableStart="@drawable/ashkbarg_logo"
+        android:textColor="@color/black_text_color"
+        app:layout_constraintTop_toBottomOf="@+id/subtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableLeft="@drawable/ashkbarg_logo" />
+
+
+</android.support.constraint.ConstraintLayout>

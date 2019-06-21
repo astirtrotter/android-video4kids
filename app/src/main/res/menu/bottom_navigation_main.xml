@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_team_rank"
+        android:enabled="true"
+        android:icon="@drawable/youtube_icon"
+        android:title=""
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_all_bat"
+        android:enabled="true"
+        android:icon="@drawable/music_icon"
+        android:title=""
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_all_bowler"
+        android:enabled="true"
+        android:icon="@drawable/lean_icon"
+        android:title=""
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_all_rounder"
+        android:enabled="true"
+        android:icon="@drawable/favourite_icon"
+        android:title=""
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/browse_all_rounder"
+        android:enabled="true"
+        android:icon="@drawable/browse_icon"
+        android:title=""
+        app:showAsAction="ifRoom" />
+</menu>

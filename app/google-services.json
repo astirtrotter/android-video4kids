@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "195140611429",
+    "firebase_url": "https://deedaniha-62c24.firebaseio.com",
+    "project_id": "deedaniha-62c24",
+    "storage_bucket": "deedaniha-62c24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:195140611429:android:4057bb71261a7f27",
+        "android_client_info": {
+          "package_name": "com.example.video4kids"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "195140611429-mi4bimspqiglkpc57g5bp84l2a8b08rh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9xPzvFmAG-tjFELnkte4y3MEgdpgDKio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "195140611429-mi4bimspqiglkpc57g5bp84l2a8b08rh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,35 @@
+<resources>
+	<dimen name="activity_horizontal_margin">17.6dp</dimen>
+	<dimen name="activity_vertical_margin">17.6dp</dimen>
+	<dimen name="margin_2">2.2dp</dimen>
+	<dimen name="margin_1x">11dp</dimen>
+	<dimen name="margin_18x">198dp</dimen>
+	<dimen name="margin_15x">165dp</dimen>
+	<dimen name="margin_12.5x">137.5dp</dimen>
+	<dimen name="margin_0.5x">5.5dp</dimen>
+	<dimen name="margin_9x">99dp</dimen>
+	<dimen name="margin_1.5x">16.5dp</dimen>
+	<dimen name="margin_6x">66dp</dimen>
+	<dimen name="margin_7x">77dp</dimen>
+	<dimen name="toolbar_text_size">27.5dp</dimen>
+	<dimen name="margin_4x">44dp</dimen>
+	<dimen name="margin_5x">55dp</dimen>
+	<dimen name="margin_2x">22dp</dimen>
+	<dimen name="margin_3x">33dp</dimen>
+	<dimen name="margin_4.5x">49.5dp</dimen>
+	<dimen name="margin_3.5x">38.5dp</dimen>
+	<dimen name="margin_8.5x">93.5dp</dimen>
+	<dimen name="margin_10.5x">115.5dp</dimen>
+	<dimen name="radius3">3.3dp</dimen>
+	<dimen name="text_1x">11sp</dimen>
+	<dimen name="text_5.5x">60.5sp</dimen>
+	<dimen name="text_2x">22sp</dimen>
+	<dimen name="normal_text_size_22">24.2sp</dimen>
+	<dimen name="text_2.5x">27.5sp</dimen>
+	<dimen name="text_3.5x">38.5sp</dimen>
+	<dimen name="text_1.5x">16.5sp</dimen>
+	<dimen name="text_3x">33sp</dimen>
+	<dimen name="text_1.2x">13.2sp</dimen>
+	<dimen name="margin_1.3x">14.3dp</dimen>
+	<dimen name="margin_1.4x">15.4dp</dimen>
+</resources>

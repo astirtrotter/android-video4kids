@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@android:color/black</color>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorAccent">@android:color/black</color>
+    <color name="color_app_color">#201b51</color>
+    <color name="color_white">#fff</color>
+    <color name="color_black">#000</color>
+    <color name="toastError">#FF4081</color>
+    <color name="medium_grey">#9c9c9c</color>
+    <color name="light_grey">#CABBBBBB</color>
+    <color name="divider_grey">#EDF1F7</color>
+    <color name="light_grey_color">#EDF1F7</color>
+    <color name="placeholder_bg">#F6F7F9</color>
+    <color name="inner_toolbar_text_color">#ffffff</color>
+    <color name="white_50">#ddebebeb</color>
+    <color name="black_50">#D9BBBBBB</color>
+    <color name="grey_EF">#EFF0F2</color>
+    <color name="black_text_color">@android:color/black</color>
+
+    <color name="yellow_color">#F3B114</color>
+    <color name="white_light_color">#FBF9F9</color>
+    <color name="grey_shade">#e7e7e7</color>
+
+    <color name="green_color">#45BF51</color>
+    <color name="light_green">#FF91DE99</color>
+
+    <color name="app_green_color">#51BF45</color>
+
+    <color name="white_color_35per">#59FFFFFF</color>
+
+    <color name="grey_color">#ACACAC</color>
+
+    <color name="grey_color_B6">#B6B6B6</color>
+    <color name="green_color_2F">#2FD99B</color>
+    <color name="grey_color_D4">#D4D4D4</color>
+    <color name="red_color">#FD0606</color>
+    <color name="grey_color_E4">#E4E4E4</color>
+
+</resources>
