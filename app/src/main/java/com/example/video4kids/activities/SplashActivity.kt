@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
 import com.example.video4kids.R
 import com.example.video4kids.common.Pref
+import com.example.video4kids.common.extensions.gotoAnotherActivity
 import com.pawegio.kandroid.IntentFor
 import com.pawegio.kandroid.start
 
@@ -25,9 +26,9 @@ class SplashActivity : AppCompatActivity() {
 
         val navigate = {
             if (Pref.isFirstLaunch) {
-                gotoActivity<LanguageSelectionActivity>()
+                gotoAnotherActivity<LanguageSelectionActivity>()
             } else {
-                gotoActivity<MainActivity>()
+                gotoAnotherActivity<MainActivity>()
             }
             finish()
         }
@@ -41,12 +42,5 @@ class SplashActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         player.stop()
-    }
-
-    private inline fun <reified T: Activity> gotoActivity() {
-        val intent = IntentFor<T>(this)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK.or(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        intent.start(this)
-        finish()
     }
 }

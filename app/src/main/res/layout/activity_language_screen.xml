@@ -21,7 +21,7 @@
         app:layout_constraintBottom_toTopOf="@+id/flagOneIV"/>
 
     <TextView
-        android:id="@+id/flagOneIV"
+        android:id="@+id/langPersian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/arabian_flag"
@@ -38,7 +38,7 @@
         app:layout_constraintBottom_toTopOf="@+id/flagTwoIV"/>
 
     <TextView
-        android:id="@+id/flagTwoIV"
+        android:id="@+id/langEnglish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="12dp"
