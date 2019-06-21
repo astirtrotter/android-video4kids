@@ -49,11 +49,13 @@ dependencies {
     // do not upgrade xvideoplayer version because only this version supports 64bit CPUs
     implementation 'com.henryblue.mxvideoplayer:xvideoplayer:1.1.6'
     implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
-    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
-
+    implementation "com.marcinmoskala.PreferenceHolder:preferenceholder:1.51"
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'info.guardianproject.netcipher:netcipher:1.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
     implementation project(':jiaozivideoplayer')
 
     testImplementation 'junit:junit:4.12'
