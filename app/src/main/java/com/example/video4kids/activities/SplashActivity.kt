@@ -13,6 +13,8 @@ import com.pawegio.kandroid.start
 
 class SplashActivity : AppCompatActivity() {
 
+    private lateinit var player: MediaPlayer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -30,10 +32,15 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }
 
-        MediaPlayer.create(this, R.raw.music_info).apply {
+        player = MediaPlayer.create(this, R.raw.music_info).apply {
             setOnCompletionListener { navigate() }
             start()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        player.stop()
     }
 
     private inline fun <reified T: Activity> gotoActivity() {

@@ -1,8 +1,8 @@
 package com.example.video4kids
 
 import android.annotation.SuppressLint
-import android.app.Application
 import android.content.Context
+import android.support.multidex.MultiDexApplication
 import android.util.Log
 import com.crashlytics.android.Crashlytics
 import com.example.video4kids.activities.MainActivity
@@ -11,7 +11,7 @@ import com.marcinmoskala.kotlinpreferences.PreferenceHolder
 import com.mcxiaoke.koi.KoiConfig
 import io.fabric.sdk.android.Fabric
 
-class App : Application() {
+class App : MultiDexApplication() {
     companion object {
         @SuppressLint("StaticFieldLeak")
         lateinit var context: Context
