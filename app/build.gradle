@@ -56,6 +56,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'info.guardianproject.netcipher:netcipher:1.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'com.pawegio.kandroid:kandroid:0.8.2@aar'
+    implementation 'com.mcxiaoke.koi:core:0.5.5' // useful extensions (only ~100k)
+    implementation 'io.reactivex:rxjava:1.1.6'
+    implementation 'io.reactivex:rxandroid:1.2.1'
     implementation project(':jiaozivideoplayer')
 
     testImplementation 'junit:junit:4.12'
