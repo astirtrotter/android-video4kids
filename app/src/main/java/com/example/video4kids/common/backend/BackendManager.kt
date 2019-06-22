@@ -20,10 +20,9 @@ import rx.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 object BackendManager {
-    private lateinit var api: API
-    private val gson = Gson()
+    private val api: API
 
-    fun init() {
+    init {
         val gsonDateTimeFormat = GsonBuilder()
             .setDateFormat(Constants.DATE_TIME_FORMAT)
             .create()
