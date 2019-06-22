@@ -33,6 +33,9 @@
         <activity
                 android:name=".activities.HelpActivity"
                 android:screenOrientation="portrait"/>
+        <activity
+                android:name=".activities.AgeSelectionActivity"
+                android:screenOrientation="portrait"/>
 
         <meta-data
                 android:name="io.fabric.ApiKey"
