@@ -1,9 +1,8 @@
-<resources>
-
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">دیدنی‌ ها </string>
 
-    <string name="grown_only">"برای بزرگتر‌ها "</string>
-    <string name="enter_number">برای دستیابی لطفا اعداد  زیر را به ترتیب وارد کنید</string>
+    <string name="grown_only" tools:ignore="ExtraTranslation">"برای بزرگتر‌ها "</string>
+    <string name="enter_number" tools:ignore="ExtraTranslation">برای دستیابی لطفا اعداد  زیر را به ترتیب وارد کنید</string>
 
     <string name="areyousure">آیا میخواهید این ویدئو را دانلود کنید؟</string>
     <string name="yes">بله</string>
@@ -12,66 +11,66 @@
 
     <string name="searchalert"> هشدار</string>
     <string name="searchinternet">پیدا نشد. لطفا دوباره سعی کنید. </string>
-    <string name="tryagen">دوباره امتحان کنید</string>
+    <string name="tryagen" tools:ignore="ExtraTranslation">دوباره امتحان کنید</string>
 
 
-    <string name="Passcode_verification">تائید کلمه عبورقبلی‌</string>
+    <string name="Passcode_verification" tools:ignore="ExtraTranslation">تائید کلمه عبورقبلی‌</string>
 
-    <string name="internetalert">هشدار اینترنتی</string>
-    <string name="internet">اینترنت وصل نیست. لطفا به اینترنت وصل شوید و دوباره سعی کنید.</string>
-    <string name="openSetting">برو به تنظیمات </string>
+    <string name="internetalert" tools:ignore="ExtraTranslation">هشدار اینترنتی</string>
+    <string name="internet" tools:ignore="ExtraTranslation">اینترنت وصل نیست. لطفا به اینترنت وصل شوید و دوباره سعی کنید.</string>
+    <string name="openSetting" tools:ignore="ExtraTranslation">برو به تنظیمات </string>
 
     <string name="downloding">دانلود شروع شد ...</string>
-    <string name="NewPasscode">کلمه عبور جدید را وارد کنید</string>
-    <string name="ConfirmNewPasscode">کلمه عبور را مجدداً وارد کنید</string>
-    <string name="EnterRightPasscode">کلمه عبور وارد شده صحیح نمی‌باشد، لطفا دوباره سعی‌ کنید.</string>
-    <string name="ConfirmPasscodenotmatch">کلمه عبور مجدد نادرست نمی‌باشد، لطفا دوباره سعی‌ کنید.</string>
-    <string name="PleaseEnteryouroldpasscode">لطفا کلمه عبور خود را وارد کنید</string>
-    <string name="PleaseEnteryourpasscode">لطفا کلمه عبور خود را وارد کنید</string>
-    <string name="cancel">انصراف</string>
+    <string name="NewPasscode" tools:ignore="ExtraTranslation">کلمه عبور جدید را وارد کنید</string>
+    <string name="ConfirmNewPasscode" tools:ignore="ExtraTranslation">کلمه عبور را مجدداً وارد کنید</string>
+    <string name="EnterRightPasscode" tools:ignore="ExtraTranslation">کلمه عبور وارد شده صحیح نمی‌باشد، لطفا دوباره سعی‌ کنید.</string>
+    <string name="ConfirmPasscodenotmatch" tools:ignore="ExtraTranslation">کلمه عبور مجدد نادرست نمی‌باشد، لطفا دوباره سعی‌ کنید.</string>
+    <string name="PleaseEnteryouroldpasscode" tools:ignore="ExtraTranslation">لطفا کلمه عبور خود را وارد کنید</string>
+    <string name="PleaseEnteryourpasscode" tools:ignore="ExtraTranslation">لطفا کلمه عبور خود را وارد کنید</string>
+    <string name="cancel" tools:ignore="ExtraTranslation">انصراف</string>
 
-    <string name="Alert">هشدار</string>
+    <string name="Alert" tools:ignore="ExtraTranslation">هشدار</string>
     <string name="ok">تائید</string>
-    <string name="Confirm">تائید</string>
-    <string name="SetPasscode">کلمه عبور خود را بسازید</string>
-    <string name="oldpaacode">کلمه عبورقبلی‌ را وارد کنید</string>
-    <string name="number"> سه,یک,صفر,هشت</string>
+    <string name="Confirm" tools:ignore="ExtraTranslation">تائید</string>
+    <string name="SetPasscode" tools:ignore="ExtraTranslation">کلمه عبور خود را بسازید</string>
+    <string name="oldpaacode" tools:ignore="ExtraTranslation">کلمه عبورقبلی‌ را وارد کنید</string>
+    <string name="number" tools:ignore="ExtraTranslation"> سه,یک,صفر,هشت</string>
 
-    <string name="Passcodeverification">تائید کلمه عبورقبلی‌</string>
+    <string name="Passcodeverification" tools:ignore="ExtraTranslation">تائید کلمه عبورقبلی‌</string>
 
-    <string name="createpasscode">کلمه عبور خود را بسازید</string>
+    <string name="createpasscode" tools:ignore="ExtraTranslation">کلمه عبور خود را بسازید</string>
 
-    <string name="passcodeconformation">تائید کلمه عبور جدید</string>
+    <string name="passcodeconformation" tools:ignore="ExtraTranslation">تائید کلمه عبور جدید</string>
 
 
-    <string name="searchnotfound">پیدا نشد .لطفا دوباره سعی کنید.</string>
+    <string name="searchnotfound" tools:ignore="ExtraTranslation">پیدا نشد .لطفا دوباره سعی کنید.</string>
 
-    <string name="sharevideo">بھ اشتراک بگذارید</string>
-    <string name="Continue">ادامه</string>
-    <string name="AboutUs">درباره ما</string>
+    <string name="sharevideo" tools:ignore="ExtraTranslation">بھ اشتراک بگذارید</string>
+    <string name="Continue" tools:ignore="ExtraTranslation">ادامه</string>
+    <string name="AboutUs" tools:ignore="ExtraTranslation">درباره ما</string>
 
-    <string name="Doyouwanttounblockthisvideo">آیا می‌خواهید این ویدئو را قابل دسترس کنید ؟</string>
-    <string name="block">مسدود کنید</string>
+    <string name="Doyouwanttounblockthisvideo" tools:ignore="ExtraTranslation">آیا می‌خواهید این ویدئو را قابل دسترس کنید ؟</string>
+    <string name="block" tools:ignore="ExtraTranslation">مسدود کنید</string>
     <string name="blocked">مسدود شده</string>
-    <string name="unblocked"> باز کنید</string>
-    <string name="blockvideo">ویدئو را مسدود کنید </string>
-    <string name="unblockvideo">ویدئو را باز کنید </string>
+    <string name="unblocked" tools:ignore="ExtraTranslation"> باز کنید</string>
+    <string name="blockvideo" tools:ignore="ExtraTranslation">ویدئو را مسدود کنید </string>
+    <string name="unblockvideo" tools:ignore="ExtraTranslation">ویدئو را باز کنید </string>
     <string name="pleasewait">لطفا صبر کنید... </string>
-    <string name="feedbackform">فرم نظرسنجی</string>
+    <string name="feedbackform" tools:ignore="ExtraTranslation">فرم نظرسنجی</string>
     <string name="next">بعدی</string>
-    <string name="feedback">نظرسنجی</string>
-    <string name="done">انجام شد</string>
-    <string name="ContactUs">Contact Us</string>
-    <string name="ChangeAge">Change Age</string>
-    <string name="ChangePasscode">Change Passcode</string>
-    <string name="Arabic">Arabic</string>
-    <string name="English">English</string>
-    <string name="changelan">English</string>
+    <string name="feedback" tools:ignore="ExtraTranslation">نظرسنجی</string>
+    <string name="done" tools:ignore="ExtraTranslation">انجام شد</string>
+    <string name="ContactUs" tools:ignore="ExtraTranslation">Contact Us</string>
+    <string name="ChangeAge" tools:ignore="ExtraTranslation">Change Age</string>
+    <string name="ChangePasscode" tools:ignore="ExtraTranslation">Change Passcode</string>
+    <string name="Arabic" tools:ignore="ExtraTranslation">Arabic</string>
+    <string name="English" tools:ignore="ExtraTranslation">English</string>
+    <string name="changelan" tools:ignore="ExtraTranslation">English</string>
 
 
-    <string name="alert">هشدار اینترنتی </string>
-    <string name="message">سرعت اینترنت شما خیلی آهسته است. آیا میخواهید منتظر بمانید یا خارج شوید ؟ </string>
-    <string name="wait">صبر کن</string>
-    <string name="forceclose">خروج</string>
+    <string name="alert" tools:ignore="ExtraTranslation">هشدار اینترنتی </string>
+    <string name="message" tools:ignore="ExtraTranslation">سرعت اینترنت شما خیلی آهسته است. آیا میخواهید منتظر بمانید یا خارج شوید ؟ </string>
+    <string name="wait" tools:ignore="ExtraTranslation">صبر کن</string>
+    <string name="forceclose" tools:ignore="ExtraTranslation">خروج</string>
 
 </resources>

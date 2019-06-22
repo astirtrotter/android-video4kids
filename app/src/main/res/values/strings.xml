@@ -1,6 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Video4Kids</string>
-    <string name="user_details">Dear Users,\n\n \"Deedani_Ha\" application is a collection of short
+    <string name="user_details" tools:ignore="MissingTranslation">Dear Users,\n\n \"Deedani_Ha\" application is a collection of short
         nostalgic and memorable useful videos. Many videos on internet are not suitable for kids and,
         it is also time consuming and sometimes very challenging to find out favorit videos.
         \n\nWe have collected a handfull of attractive and useful\nvideos in five categories of:
@@ -10,16 +10,16 @@
         \n\nThe search tool allows users to search the keywords\nIn the title of the videos to find their favorite
         videos.
     </string>
-    <string name="short_video_archive">SHORT VIDEO ARCHIVE</string>
+    <string name="short_video_archive" tools:ignore="MissingTranslation">SHORT VIDEO ARCHIVE</string>
 
-    <string name="app_logo_image">App Logo Image</string>
-    <string name="splash_icon_ar_name">برای بزر\nگتر‌ها </string>
-    <string name="language_selection">LANGUAGE SELECTION</string>
-    <string name="video_kid_shared_pref">VideoKidPrefs</string>
-    <string name="english_name">ENGLISH</string>
-    <string name="arabic_name">ARABIC</string>
-    <string name="deedani_ha">\@Deedani_Ha</string>
-    <string name="contact_us">Contact Us:</string>
+    <string name="app_logo_image" tools:ignore="MissingTranslation">App Logo Image</string>
+    <string name="splash_icon_ar_name" tools:ignore="MissingTranslation">برای بزر\nگتر‌ها </string>
+    <string name="language_selection" tools:ignore="MissingTranslation">LANGUAGE SELECTION</string>
+    <string name="video_kid_shared_pref" tools:ignore="MissingTranslation">VideoKidPrefs</string>
+    <string name="english_name" tools:ignore="MissingTranslation">ENGLISH</string>
+    <string name="arabic_name" tools:ignore="MissingTranslation">ARABIC</string>
+    <string name="deedani_ha" tools:ignore="MissingTranslation">\@Deedani_Ha</string>
+    <string name="contact_us" tools:ignore="MissingTranslation">Contact Us:</string>
     <string name="next">Next</string>
     <string name="searchinternet">Not Found! Please try again.</string>
     <string name="searchalert">Alert</string>
@@ -29,44 +29,44 @@
     <string name="no">No</string>
     <string name="before">You downloaded this video before!</string>
     <string name="downloding">Start Downloading ...</string>
-    <string name="go_to_setting">go to setting</string>
-    <string name="denied_media_title">Denied Permission to Store Files</string>
-    <string name="denied_media_msg">You denied this media permission so you can not store downloaded files without this
+    <string name="go_to_setting" tools:ignore="MissingTranslation">go to setting</string>
+    <string name="denied_media_title" tools:ignore="MissingTranslation">Denied Permission to Store Files</string>
+    <string name="denied_media_msg" tools:ignore="MissingTranslation">You denied this media permission so you can not store downloaded files without this
         permission please go to setting and enable storage permission
     </string>
-    <string name="con_change_passcode">Confirm Your Passcode</string>
-    <string name="change_passcode">Set Passcode</string>
-    <string name="change_passcode_small">Change Passcode</string>
-    <string name="learn">LEARN</string>
-    <string name="logout">LOGOUT</string>
-    <string name="change_language">CHANGE LANGUAGE</string>
-    <string name="select_age_selection">SELECT AGE SELECTION</string>
+    <string name="con_change_passcode" tools:ignore="MissingTranslation">Confirm Your Passcode</string>
+    <string name="change_passcode" tools:ignore="MissingTranslation">Set Passcode</string>
+    <string name="change_passcode_small" tools:ignore="MissingTranslation">Change Passcode</string>
+    <string name="learn" tools:ignore="MissingTranslation">LEARN</string>
+    <string name="logout" tools:ignore="MissingTranslation">LOGOUT</string>
+    <string name="change_language" tools:ignore="MissingTranslation">CHANGE LANGUAGE</string>
+    <string name="select_age_selection" tools:ignore="MissingTranslation">SELECT AGE SELECTION</string>
     <string name="pleasewait">Please wait…</string>
     <string name="ok">Ok</string>
-    <string name="contact_us_setting">CONTACT US</string>
-    <string name="change_passcode_setting">CHANGE PASSCODE</string>
-    <string name="grown_ups_only">Grown-Ups Only</string>
-    <string name="to_access_please_enter_the_numbers_seven_five_seven_five">To access please enter the numbers</string>
-    <string name="alert_title">Alert</string>
-    <string name="range_children">Choose the Range</string>
-    <string name="children">For Children</string>
-    <string name="all">FOR ALL</string>
-    <string name="no_data">Not Found! Please try again.</string>
+    <string name="contact_us_setting" tools:ignore="MissingTranslation">CONTACT US</string>
+    <string name="change_passcode_setting" tools:ignore="MissingTranslation">CHANGE PASSCODE</string>
+    <string name="grown_ups_only" tools:ignore="MissingTranslation">Grown-Ups Only</string>
+    <string name="to_access_please_enter_the_numbers_seven_five_seven_five" tools:ignore="MissingTranslation">To access please enter the numbers</string>
+    <string name="alert_title" tools:ignore="MissingTranslation">Alert</string>
+    <string name="range_children" tools:ignore="MissingTranslation">Choose the Range</string>
+    <string name="children" tools:ignore="MissingTranslation">For Children</string>
+    <string name="all" tools:ignore="MissingTranslation">FOR ALL</string>
+    <string name="no_data" tools:ignore="MissingTranslation">Not Found! Please try again.</string>
 
 
-    <string name="video">Videos</string>
-    <string name="musics">Musics</string>
-    <string name="learns">Learns</string>
-    <string name="favorites">Favourites</string>
-    <string name="explores">Explores</string>
-    <string name="search">Please enter search text</string>
-    <string name="passcode">Please enter your Passcode</string>
-    <string name="new_pwd">Enter New Passcode</string>
-    <string name="old_pwd">Enter Old Passcode</string>
-    <string name="perisan_new_pwd">رمز عبور جدید را وارد کنید</string>
-    <string name="perisan_old_pwd">رمز عبور قدیمی را وارد کنید</string>
+    <string name="video" tools:ignore="MissingTranslation">Videos</string>
+    <string name="musics" tools:ignore="MissingTranslation">Musics</string>
+    <string name="learns" tools:ignore="MissingTranslation">Learns</string>
+    <string name="favorites" tools:ignore="MissingTranslation">Favourites</string>
+    <string name="explores" tools:ignore="MissingTranslation">Explores</string>
+    <string name="search" tools:ignore="MissingTranslation">Please enter search text</string>
+    <string name="passcode" tools:ignore="MissingTranslation">Please enter your Passcode</string>
+    <string name="new_pwd" tools:ignore="MissingTranslation">Enter New Passcode</string>
+    <string name="old_pwd" tools:ignore="MissingTranslation">Enter Old Passcode</string>
+    <string name="perisan_new_pwd" tools:ignore="MissingTranslation">رمز عبور جدید را وارد کنید</string>
+    <string name="perisan_old_pwd" tools:ignore="MissingTranslation">رمز عبور قدیمی را وارد کنید</string>
     //Anthor Language
-    <string name="perisan_user">کاربران عزیز، \ n \ n \ "Deedani_Ha \" نرم افزار مجموعه ای از کوتاه است
+    <string name="perisan_user" tools:ignore="MissingTranslation">کاربران عزیز، \ n \ n \ "Deedani_Ha \" نرم افزار مجموعه ای از کوتاه است
                 فیلم های دلپذیر و خاطره انگیز مفید است. بسیاری از فیلم ها در اینترنت برای بچه ها مناسب نیستند
                 همچنین زمان فیلمبرداری و گاهی اوقات بسیار دشوار برای پیدا کردن فیلمهای مورد علاقه است.
                 \ n \ n ما چندین ویدیو جذاب و مفید را در پنج دسته از موارد زیر جمع آوری کرده ایم:
@@ -79,44 +79,44 @@
         کردن ویدیوهای مورد علاقه خود.
     </string>
 
-    <string name="perisan_deedani_ha">\ @ ددیانی_ه</string>
-    <string name="perisan_contact_us">تماس با ما:</string>
-    <string name="perisan_next">بعد</string>
+    <string name="perisan_deedani_ha" tools:ignore="MissingTranslation">\ @ ددیانی_ه</string>
+    <string name="perisan_contact_us" tools:ignore="MissingTranslation">تماس با ما:</string>
+    <string name="perisan_next" tools:ignore="MissingTranslation">بعد</string>
 
-    <string name="perisan_change_passcode">تنظیم رمز عبور</string>
-    <string name="perisan_change_passcode_small">تغییر رمز عبور</string>
-    <string name="perisan_learn">فرا گرفتن</string>
-    <string name="perisan_logout">خروج</string>
-    <string name="perisan_change_language">تغییر زبان</string>
-    <string name="perisan_select_age_selection">سلکت اگه سلکتیون</string>
-    <string name="perisan_pleasewait">لطفا صبر کنید…</string>
-    <string name="perisan_ok">خوب</string>
-    <string name="perisan_contact_us_setting">تماس با ما</string>
-    <string name="perisan_change_passcode_setting">تغییر پدیده</string>
-    <string name="perisan_grown_ups_only">رشد فقط یو پی اس</string>
-    <string name="perisan_to_access_please_enter_the_numbers_seven_five_seven_five">برای دسترسی لطفا شماره را وارد
+    <string name="perisan_change_passcode" tools:ignore="MissingTranslation">تنظیم رمز عبور</string>
+    <string name="perisan_change_passcode_small" tools:ignore="MissingTranslation">تغییر رمز عبور</string>
+    <string name="perisan_learn" tools:ignore="MissingTranslation">فرا گرفتن</string>
+    <string name="perisan_logout" tools:ignore="MissingTranslation">خروج</string>
+    <string name="perisan_change_language" tools:ignore="MissingTranslation">تغییر زبان</string>
+    <string name="perisan_select_age_selection" tools:ignore="MissingTranslation">سلکت اگه سلکتیون</string>
+    <string name="perisan_pleasewait" tools:ignore="MissingTranslation">لطفا صبر کنید…</string>
+    <string name="perisan_ok" tools:ignore="MissingTranslation">خوب</string>
+    <string name="perisan_contact_us_setting" tools:ignore="MissingTranslation">تماس با ما</string>
+    <string name="perisan_change_passcode_setting" tools:ignore="MissingTranslation">تغییر پدیده</string>
+    <string name="perisan_grown_ups_only" tools:ignore="MissingTranslation">رشد فقط یو پی اس</string>
+    <string name="perisan_to_access_please_enter_the_numbers_seven_five_seven_five" tools:ignore="MissingTranslation">برای دسترسی لطفا شماره را وارد
         کنید
     </string>
-    <string name="perisan_alert_title">هشدار</string>
+    <string name="perisan_alert_title" tools:ignore="MissingTranslation">هشدار</string>
 
-    <string name="perisan_range_children">محدوده را انتخاب کنید</string>
-    <string name="perisan_children">برای کودکان</string>
-    <string name="perisan_all">برای همه</string>
-    <string name="perisan_no_data">پیدا نشد! لطفا دوباره تلاش کنید.</string>
+    <string name="perisan_range_children" tools:ignore="MissingTranslation">محدوده را انتخاب کنید</string>
+    <string name="perisan_children" tools:ignore="MissingTranslation">برای کودکان</string>
+    <string name="perisan_all" tools:ignore="MissingTranslation">برای همه</string>
+    <string name="perisan_no_data" tools:ignore="MissingTranslation">پیدا نشد! لطفا دوباره تلاش کنید.</string>
 
-    <string name="perisan_video">فیلم های</string>
-    <string name="perisan_musics">آهنگ ها</string>
-    <string name="perisan_learns">یاد میگیرد</string>
-    <string name="perisan_favorites">مورد علاقه های شما</string>
-    <string name="perisan_explores">کاوش می کند</string>
-    <string name="perisan_search">لطفا متن جستجو را وارد کنید</string>
-    <string name="perisan_passcode">لطفا کد عبور خود را وارد کنید</string>
+    <string name="perisan_video" tools:ignore="MissingTranslation">فیلم های</string>
+    <string name="perisan_musics" tools:ignore="MissingTranslation">آهنگ ها</string>
+    <string name="perisan_learns" tools:ignore="MissingTranslation">یاد میگیرد</string>
+    <string name="perisan_favorites" tools:ignore="MissingTranslation">مورد علاقه های شما</string>
+    <string name="perisan_explores" tools:ignore="MissingTranslation">کاوش می کند</string>
+    <string name="perisan_search" tools:ignore="MissingTranslation">لطفا متن جستجو را وارد کنید</string>
+    <string name="perisan_passcode" tools:ignore="MissingTranslation">لطفا کد عبور خود را وارد کنید</string>
 
-    <string name="passcode_change">Passcode has been changed</string>
-    <string name="perisan_passcode_change">گذرواژه تغییر کرده است</string>
-    <string name="passcode_correct">Please enter correct Passcode</string>
-    <string name="perisan_passcode_correct">لطفا رمز عبور صحیح را وارد کنید</string>
+    <string name="passcode_change" tools:ignore="MissingTranslation">Passcode has been changed</string>
+    <string name="perisan_passcode_change" tools:ignore="MissingTranslation">گذرواژه تغییر کرده است</string>
+    <string name="passcode_correct" tools:ignore="MissingTranslation">Please enter correct Passcode</string>
+    <string name="perisan_passcode_correct" tools:ignore="MissingTranslation">لطفا رمز عبور صحیح را وارد کنید</string>
 
-    <string name="sucessfully">Passcode set sucessfully</string>
-    <string name="perisan_sucessfully">گذرواژه موفقیت آمیز است</string>
+    <string name="sucessfully" tools:ignore="MissingTranslation">Passcode set sucessfully</string>
+    <string name="perisan_sucessfully" tools:ignore="MissingTranslation">گذرواژه موفقیت آمیز است</string>
 </resources>
