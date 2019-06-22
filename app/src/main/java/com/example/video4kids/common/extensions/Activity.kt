@@ -6,11 +6,12 @@ import com.example.video4kids.common.Pref
 import com.pawegio.kandroid.IntentFor
 import com.pawegio.kandroid.start
 
-inline fun <reified T: Activity> Activity.gotoAnotherActivity() {
+inline fun <reified T: Activity> Activity.gotoAnotherActivity(isToFinish: Boolean = true) {
     val intent = IntentFor<T>(this)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK.or(Intent.FLAG_ACTIVITY_CLEAR_TOP)
     intent.start(this)
-    finish()
+
+    if (isToFinish) finish()
 }
 
 fun Activity.getString(enResId: Int, prResId: Int): String {

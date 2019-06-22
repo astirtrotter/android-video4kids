@@ -15,6 +15,7 @@ import com.pawegio.kandroid.start
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var player: MediaPlayer
+    private var isPlayerReleased: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,23 +25,26 @@ class SplashActivity : AppCompatActivity() {
 
         if (savedInstanceState != null) return
 
-        val navigate = {
-            if (Pref.isFirstLaunch) {
-                gotoAnotherActivity<LanguageSelectionActivity>()
-            } else {
-                gotoAnotherActivity<MainActivity>()
-            }
-            finish()
-        }
-
         player = MediaPlayer.create(this, R.raw.music_info).apply {
-            setOnCompletionListener { navigate() }
+            setOnCompletionListener {
+                if (Pref.isFirstLaunch) {
+                    gotoAnotherActivity<LanguageSelectionActivity>()
+                } else {
+                    gotoAnotherActivity<MainActivity>()
+                }
+                release()
+                isPlayerReleased = true
+            }
             start()
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        player.stop()
+        if (!isPlayerReleased) {
+            player.stop()
+            player.release()
+        }
+
     }
 }
