@@ -8,5 +8,5 @@ object Pref : PreferenceHolder() {
     var isPasscodeSet: Boolean? by bindToPreferenceFieldNullable()
 
     val isFirstLaunch: Boolean
-        get() = isAdult == null
+        get() = isAdult == null || isEnglish == null
 }
