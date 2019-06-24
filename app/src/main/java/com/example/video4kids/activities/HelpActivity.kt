@@ -21,7 +21,11 @@ class HelpActivity : AppCompatActivity(), IMultiLangScreen {
         configureMultiLangViews()
 
         btnNext.onClick {
-            gotoAnotherActivity<AgeSelectionActivity>()
+            if (Pref.isFirstLaunch) {
+                gotoAnotherActivity<AgeSelectionActivity>()
+            } else {
+                finish()
+            }
         }
     }
 
