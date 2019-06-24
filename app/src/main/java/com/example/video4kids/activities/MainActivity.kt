@@ -96,9 +96,8 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
     private fun updateRecyclerView() {
         progress.dismiss()
 
-        if (items.size == 0) {
+        if (items.size == 0 && selectedNavItemId != R.id.nav_favorite) {
             showAlert(getMultiLangString(R.string.no_data, R.string.perisan_no_data))
-            return
         }
 
         // adapter
