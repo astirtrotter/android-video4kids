@@ -14,6 +14,6 @@ inline fun <reified T: Activity> Activity.gotoAnotherActivity(isToFinish: Boolea
     if (isToFinish) finish()
 }
 
-fun Activity.getString(enResId: Int, prResId: Int): String {
+fun Activity.getMultiLangString(enResId: Int, prResId: Int): String {
     return resources.getString(enResId.takeIf { Pref.isEnglish!! } ?: prResId)
 }
