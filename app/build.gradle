@@ -53,6 +53,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.9'
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
     implementation "com.marcinmoskala.PreferenceHolder:preferenceholder:1.51"
+    implementation "com.marcinmoskala.PreferenceHolder:preferenceholder-gson-serializer:1.51"
     implementation "com.squareup.retrofit2:retrofit:2.3.0"
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'info.guardianproject.netcipher:netcipher:1.2'

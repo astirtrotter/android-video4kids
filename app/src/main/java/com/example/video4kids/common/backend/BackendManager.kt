@@ -2,11 +2,10 @@ package com.example.video4kids.common.backend
 
 import com.example.video4kids.common.Constants
 import com.example.video4kids.common.backend.api.API
-import com.example.video4kids.common.backend.api.VideoList
+import com.example.video4kids.common.backend.api.VideoItem
 import com.example.video4kids.common.backend.intercepter.AuthorizationInterceptor
 import com.example.video4kids.common.backend.intercepter.RetryInterceptor
 import com.example.video4kids.common.extensions.log
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -57,10 +56,10 @@ object BackendManager {
         subscriber.onCompleted()
     }
 
-    fun getSearchVideo(name: String, userkey: String): Observable<List<VideoList>> {
+    fun getSearchVideo(name: String, userkey: String): Observable<List<VideoItem>> {
 
-        val observable: Observable<List<VideoList>> = Observable.create { subscriber ->
-            respond<List<VideoList>>(
+        val observable: Observable<List<VideoItem>> = Observable.create { subscriber ->
+            respond<List<VideoItem>>(
                 subscriber,
                 api.getSearchVideo(name, userkey).execute(),
                 "getSearchVideo")
@@ -69,10 +68,10 @@ object BackendManager {
         return observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getVideos(path: String, kind: String): Observable<List<VideoList>> {
+    fun getVideos(path: String, kind: String): Observable<List<VideoItem>> {
 
-        val observable: Observable<List<VideoList>> = Observable.create { subscriber ->
-            respond<List<VideoList>>(
+        val observable: Observable<List<VideoItem>> = Observable.create { subscriber ->
+            respond<List<VideoItem>>(
                 subscriber,
                 api.getVideos(path, kind).execute(),
                 "getVideos")
@@ -81,10 +80,10 @@ object BackendManager {
         return observable.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getVideosMore(path: String, kind: String): Observable<List<VideoList>> {
+    fun getVideosMore(path: String, kind: String): Observable<List<VideoItem>> {
 
-        val observable: Observable<List<VideoList>> = Observable.create { subscriber ->
-            respond<List<VideoList>>(
+        val observable: Observable<List<VideoItem>> = Observable.create { subscriber ->
+            respond<List<VideoItem>>(
                 subscriber,
                 api.getVideosMore(path, kind).execute(),
                 "getVideosMore")
