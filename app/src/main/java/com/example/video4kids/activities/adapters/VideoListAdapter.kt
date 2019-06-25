@@ -82,9 +82,17 @@ class VideoListAdapter(private val activity: MainActivity,
             }
 
             itemView.likeIV.onClick {
+                if (item.isFav) {
+                    Pref.favoriteVideo(item)
+                } else {
+                    Pref.unfavoriteVideo(item)
+                }
+                activity.loadData()
+            }
+
+            itemView.downloadIV.onClick {
 
             }
-            itemView.downloadIV.onClick {  }
         }
     }
 }

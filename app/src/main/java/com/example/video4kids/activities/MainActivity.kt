@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
         learntoolbar.titletext.text = title
     }
 
-    private fun loadData() {
+    fun loadData() {
         if (selectedNavItemId == R.id.nav_favorite) {
             items = ArrayList(Pref.favVideoItems)
             return
