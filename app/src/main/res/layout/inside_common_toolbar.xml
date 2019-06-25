@@ -7,14 +7,13 @@
     android:layout_height="@dimen/margin_4x">
 
     <ImageView
+        android:id="@+id/icLeft"
         android:layout_width="22dp"
         android:layout_height="22dp"
         android:src="@drawable/icon_search"
-        android:id="@+id/icLeft"
-        android:layout_marginLeft="12dp"
-        android:layout_alignParentLeft="true"
-        android:layout_centerInParent="true"
-        />
+        android:layout_marginStart="12dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"/>
 
     <TextView
         android:id="@+id/titletext"
@@ -25,21 +24,35 @@
         android:textSize="@dimen/margin_1.5x"
         android:layout_centerInParent="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/secondicon"
-        app:layout_constraintStart_toEndOf="@+id/firsticon"
+        app:layout_constraintEnd_toStartOf="@+id/icRight"
+        app:layout_constraintStart_toEndOf="@+id/icLeft"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/icRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/setting_icon"
-        android:id="@+id/icRight"
         android:padding="@dimen/margin_1x"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerInParent="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <EditText
+        android:id="@+id/editSearch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@android:color/white"
+        android:singleLine="true"
+        android:inputType="textShortMessage"
+        android:imeOptions="actionDone"
+        android:layout_toStartOf="@id/icRight"
+        android:layout_marginStart="@dimen/margin_0.5x"
+        android:layout_marginTop="@dimen/margin_0.5x"
+        android:layout_marginBottom="@dimen/margin_0.5x"
+        android:visibility="gone"/>
 
 </RelativeLayout>

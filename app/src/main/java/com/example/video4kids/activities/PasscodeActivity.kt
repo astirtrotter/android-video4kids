@@ -13,6 +13,7 @@ import com.example.video4kids.activities.interfaces.IMultiLangScreen
 import com.example.video4kids.common.Pref
 import com.example.video4kids.common.extensions.getMultiLangString
 import com.mcxiaoke.koi.ext.onClick
+import com.mcxiaoke.koi.ext.showSoftKeyboard
 import com.pawegio.kandroid.hide
 import com.pawegio.kandroid.runDelayed
 import kotlinx.android.synthetic.main.activity_passcode_screen.*
@@ -266,9 +267,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         secondtextid.setText("")
         thirdtextid.setText("")
         forthtextid.setText("")
-        runDelayed(1) {
-            firsttextid.requestFocus()
-        }
+        firsttextid.showSoftKeyboard()
     }
 
 }

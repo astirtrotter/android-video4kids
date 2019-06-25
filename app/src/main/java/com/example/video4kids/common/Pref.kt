@@ -24,25 +24,17 @@ object Pref : PreferenceHolder() {
         get() = "2".takeIf { isEnglish!! } ?: "1"
     fun blockVideo(videoId: String): Boolean {
         if (blockVideoIds.contains(videoId)) return false
-        blockVideoIds = ArrayList<String>().apply {
-            addAll(blockVideoIds)
-            add(videoId)
-        }.toList()
+        blockVideoIds = ArrayList(blockVideoIds).apply { add(videoId) }
         return true
     }
     fun favoriteVideo(item: VideoItem): Boolean {
         if (item.isFav) return false
-        favVideoItems = ArrayList<VideoItem>().apply {
-            addAll(favVideoItems)
-            add(item)
-        }
+        favVideoItems = ArrayList(favVideoItems).apply { add(item) }
         return true
     }
     fun unfavoriteVideo(item: VideoItem): Boolean {
         if (!item.isFav) return false
-        favVideoItems = ArrayList<VideoItem>().apply {
-            favVideoItems.filter { it.video_id != item.video_id }
-        }
+        favVideoItems = ArrayList(favVideoItems.filter { it.video_id != item.video_id })
         return true
     }
 }

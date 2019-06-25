@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.KeyEvent
 import com.example.video4kids.R
 import com.example.video4kids.activities.adapters.VideoListAdapter
 import com.example.video4kids.activities.interfaces.IMultiLangScreen
@@ -20,9 +21,15 @@ import com.example.video4kids.common.Pref
 import com.example.video4kids.common.backend.BackendManager
 import com.example.video4kids.common.backend.api.VideoItem
 import com.example.video4kids.common.extensions.getMultiLangString
+import com.mcxiaoke.koi.ext.hideSoftKeyboard
+import com.mcxiaoke.koi.ext.onClick
+import com.mcxiaoke.koi.ext.showSoftKeyboard
 import com.mcxiaoke.koi.log.logd
 import com.pawegio.kandroid.IntentFor
+import com.pawegio.kandroid.hide
+import com.pawegio.kandroid.show
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.inside_common_toolbar.*
 import kotlinx.android.synthetic.main.inside_common_toolbar.view.*
 import rx.subscriptions.CompositeSubscription
 
@@ -56,6 +63,12 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
         }
     } }
 
+    private var search = ""
+        set(value) {
+            field = value.trim()
+            updateRecyclerView()
+        }
+
     val kind: String
         get() = learntoolbar.titletext.text.toString()
 
@@ -74,6 +87,25 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             true
         }
         selectedNavItemId = bottomNavigation.selectedItemId
+
+        editSearch.setOnKeyListener { v, keyCode, event -> keyCode == KeyEvent.KEYCODE_ENTER}
+        icLeft.onClick {
+            editSearch.show()
+            editSearch.requestFocus()
+            editSearch.showSoftKeyboard()
+            icRight.setImageResource(R.drawable.icon_search)
+        }
+        icRight.onClick {
+            if (editSearch.isShown) {
+                // search
+                editSearch.hideSoftKeyboard()
+                editSearch.hide()
+                icRight.setImageResource(R.drawable.setting_icon)
+                search = editSearch.text.toString()
+            } else {
+                // setting
+            }
+        }
     }
 
     override fun configureMultiLangViews() {}
@@ -101,9 +133,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
         CompositeSubscription().add(BackendManager.getVideos(Pref.path, kind)
             .subscribe(
                 { res ->
-                    items = ArrayList(res.filter { item ->
-                        !(Pref.blockVideoIds.contains(item.video_id!!))
-                    })
+                    items = ArrayList(res)
                 },
                 { e ->
                     progress.dismiss()
@@ -113,16 +143,19 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
     }
 
     fun updateRecyclerView() {
-        logd("================= blocked videos: ${Pref.blockVideoIds}")
-
         if (progress.isShowing) progress.dismiss()
 
-        if (items.size == 0 && selectedNavItemId != R.id.nav_favorite) {
+        val visibleItems = ArrayList(items.filter { item ->
+            !(Pref.blockVideoIds.contains(item.video_id!!)) &&
+                    (search.isEmpty() || item.title.contains(search))
+        })
+
+        if (visibleItems.size == 0 && selectedNavItemId != R.id.nav_favorite) {
             showAlert(getMultiLangString(R.string.no_data, R.string.perisan_no_data))
         }
 
         // adapter
-        recyclerView.adapter = VideoListAdapter(this, items)
+        recyclerView.adapter = VideoListAdapter(this, visibleItems)
     }
 
     private fun showAlert(msg: String) {
