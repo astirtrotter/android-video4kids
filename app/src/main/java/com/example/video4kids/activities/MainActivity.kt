@@ -88,7 +88,14 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
         }
         selectedNavItemId = bottomNavigation.selectedItemId
 
-        editSearch.setOnKeyListener { v, keyCode, event -> keyCode == KeyEvent.KEYCODE_ENTER}
+        editSearch.setOnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                icRight.callOnClick()
+                true
+            }else {
+                false
+            }
+        }
         icLeft.onClick {
             editSearch.show()
             editSearch.requestFocus()
