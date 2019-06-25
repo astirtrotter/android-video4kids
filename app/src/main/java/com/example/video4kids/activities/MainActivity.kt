@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             field = value
             updateRecyclerView()
         }
+
     private val progress: ProgressDialog by lazy { ProgressDialog(this).apply {
         setCancelable(false)
         setOnShowListener {
@@ -39,6 +40,9 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             setContentView(R.layout.progressdialog)
         }
     } }
+
+    val kind: String
+        get() = learntoolbar.titletext.text.toString()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +83,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
 
         progress.show();
 
-        CompositeSubscription().add(BackendManager.getVideos(Pref.path, learntoolbar.titletext.text.toString())
+        CompositeSubscription().add(BackendManager.getVideos(Pref.path, kind)
             .subscribe(
                 { res ->
                     items = ArrayList(res.filter { item ->
@@ -94,14 +98,14 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
     }
 
     private fun updateRecyclerView() {
-        progress.dismiss()
+        if (progress.isShowing) progress.dismiss()
 
         if (items.size == 0 && selectedNavItemId != R.id.nav_favorite) {
             showAlert(getMultiLangString(R.string.no_data, R.string.perisan_no_data))
         }
 
         // adapter
-        recyclerView.adapter = VideoListAdapter(this, items, learntoolbar.titletext.text.toString())
+        recyclerView.adapter = VideoListAdapter(this, items)
     }
 
     private fun showAlert(msg: String) {
@@ -113,5 +117,13 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             .setPositiveButton("Ok") { dialoginterface, a ->
                 dialoginterface.dismiss()
             }.show()
+    }
+
+    fun createPasscode(block: () -> Any) {
+
+    }
+
+    fun inputPasscode(block: () -> Any) {
+
     }
 }
