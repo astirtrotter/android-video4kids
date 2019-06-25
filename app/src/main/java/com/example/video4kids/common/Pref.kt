@@ -13,7 +13,7 @@ object Pref : PreferenceHolder() {
     var isForAllAge: Boolean? by bindToPreferenceFieldNullable()
     var isEnglish: Boolean? by bindToPreferenceFieldNullable()
     var passcode: String? by bindToPreferenceFieldNullable()
-    var blockVideoIds: ArrayList<String> by bindToPreferenceField(ArrayList())
+    var blockVideoIds: ArrayList<String>? by bindToPreferenceFieldNullable()
     var favVideoItems: ArrayList<VideoItem> by bindToPreferenceField(ArrayList())
 
     // exposed virtual properties
@@ -23,8 +23,9 @@ object Pref : PreferenceHolder() {
     val path: String
         get() = "2".takeIf { isEnglish!! } ?: "1"
     fun blockVideo(videoId: String): Boolean {
-        if (blockVideoIds.contains(videoId)) return false
-        blockVideoIds.add(videoId)
+        if (blockVideoIds == null) blockVideoIds = arrayListOf()
+        if (blockVideoIds!!.contains(videoId)) return false
+        blockVideoIds!!.add(videoId)
         return true
     }
     fun favoriteVideo(item: VideoItem): Boolean {

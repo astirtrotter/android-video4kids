@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             .subscribe(
                 { res ->
                     items = ArrayList(res.filter { item ->
-                        !Pref.blockVideoIds.contains(item.video_id!!)
+                        !(Pref.blockVideoIds?.contains(item.video_id!!) ?: false)
                     })
                 },
                 { e ->

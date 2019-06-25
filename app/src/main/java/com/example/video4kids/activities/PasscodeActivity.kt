@@ -32,8 +32,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         }
     }
 
-    private val isNeedToInputOldPasscode: Boolean
-        get() = isCreate && Pref.passcode != null
+    private var isNeedToInputOldPasscode = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,30 +40,31 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         icLeft.hide()
         icRight.hide()
 
+        isNeedToInputOldPasscode = isCreate && Pref.passcode != null
         gotoNextStep()
         configureEvents()
     }
 
     override fun configureMultiLangViews() {
         val onInputOldPasscode = {
-            setpassid.setText(getMultiLangString(R.string.next, R.string.perisan_next))
-            tv1.setText("")
-            tv2.setText(getMultiLangString(R.string.old_pwd, R.string.perisan_old_pwd))
+            setpassid.text = getMultiLangString(R.string.next, R.string.perisan_next)
+            tv1.text = ""
+            tv2.text = getMultiLangString(R.string.old_pwd, R.string.perisan_old_pwd)
         }
         val onInputNewPasscode = {
-            setpassid.setText(getMultiLangString(R.string.change_passcode, R.string.perisan_change_passcode))
-            tv1.setText(getMultiLangString(R.string.grown_ups_only, R.string.perisan_grown_ups_only))
-            tv2.setText(getMultiLangString(R.string.to_access_please_enter_the_numbers_seven_five_seven_five, R.string.perisan_to_access_please_enter_the_numbers_seven_five_seven_five))
+            setpassid.text = getMultiLangString(R.string.change_passcode, R.string.perisan_change_passcode)
+            tv1.text = getMultiLangString(R.string.grown_ups_only, R.string.perisan_grown_ups_only)
+            tv2.text = getMultiLangString(R.string.to_access_please_enter_the_numbers_seven_five_seven_five, R.string.perisan_to_access_please_enter_the_numbers_seven_five_seven_five)
         }
         val onInputConfirmPasscode = {
-            setpassid.setText(getMultiLangString(R.string.con_change_passcode, R.string.perisan_change_passcode))
-            tv1.setText(getMultiLangString(R.string.grown_ups_only, R.string.perisan_grown_ups_only))
-            tv2.setText(getMultiLangString(R.string.to_access_please_enter_the_numbers_seven_five_seven_five, R.string.perisan_to_access_please_enter_the_numbers_seven_five_seven_five))
+            setpassid.text = getMultiLangString(R.string.con_change_passcode, R.string.perisan_change_passcode)
+            tv1.text = getMultiLangString(R.string.grown_ups_only, R.string.perisan_grown_ups_only)
+            tv2.text = getMultiLangString(R.string.to_access_please_enter_the_numbers_seven_five_seven_five, R.string.perisan_to_access_please_enter_the_numbers_seven_five_seven_five)
         }
         val onInputPasscode = {
-            setpassid.setText(getMultiLangString(R.string.next, R.string.perisan_next))
-            tv1.setText("")
-            tv2.setText(getMultiLangString(R.string.to_access_please_enter_the_numbers_seven_five_seven_five, R.string.perisan_to_access_please_enter_the_numbers_seven_five_seven_five))
+            setpassid.text = getMultiLangString(R.string.next, R.string.perisan_next)
+            tv1.text = ""
+            tv2.text = getMultiLangString(R.string.to_access_please_enter_the_numbers_seven_five_seven_five, R.string.perisan_to_access_please_enter_the_numbers_seven_five_seven_five)
         }
         if (isCreate) {
             if (isNeedToInputOldPasscode) {
@@ -192,7 +192,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
                 secondtextid.text.toString() +
                 thirdtextid.text.toString() +
                 forthtextid.text.toString()
-        if (inputPasscode.length != 4) {
+        if (step != -1 && inputPasscode.length != 4) {
             Toast.makeText(this@PasscodeActivity, "Invalid Input!", Toast.LENGTH_LONG).show()
             return
         }
