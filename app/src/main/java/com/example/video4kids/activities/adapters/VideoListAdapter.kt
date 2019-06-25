@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import com.example.video4kids.R
 import com.example.video4kids.activities.MainActivity
 import com.example.video4kids.activities.RelatedVideosActivity
+import com.example.video4kids.activities.SingleVideoPlayActivity
 import com.example.video4kids.common.Pref
 import com.example.video4kids.common.backend.api.VideoItem
 import com.example.video4kids.common.extensions.gotoAnotherActivity
@@ -65,8 +66,9 @@ class VideoListAdapter(private val activity: MainActivity,
             .load("https://mywork.promoletter.com/storage/app/public/images/" + item.imagePath)
             .into(itemView.videoIV)
         itemView.videoIV.onClick {
-            activity.gotoAnotherActivity<RelatedVideosActivity>(false,
-                Pair("imagePath", item.imagePath))
+            activity.gotoAnotherActivity<SingleVideoPlayActivity>(false,
+                Pair("imagePath", item.imagePath),
+                Pair("videoPath", item.videoPath))
         }
 
         itemView.blockIV.onClick {
