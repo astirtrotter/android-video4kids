@@ -1,7 +1,9 @@
 package com.example.video4kids.activities
 
 import android.Manifest
+import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -18,6 +20,7 @@ import com.example.video4kids.common.Pref
 import com.example.video4kids.common.backend.BackendManager
 import com.example.video4kids.common.backend.api.VideoItem
 import com.example.video4kids.common.extensions.getMultiLangString
+import com.pawegio.kandroid.IntentFor
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.inside_common_toolbar.view.*
 import rx.subscriptions.CompositeSubscription
@@ -25,7 +28,7 @@ import rx.subscriptions.CompositeSubscription
 class MainActivity : AppCompatActivity(), IMultiLangScreen {
     companion object {
         private val REQUEST_FOR_DOWNLOAD = 101
-        private val REQUEST_FOR_PASSCODE = 102
+        private val REQUEST_FOR_BLOCK = 102
         private lateinit var download: () -> Any
         private lateinit var block: () -> Any
     }
@@ -130,17 +133,25 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             }.show()
     }
 
-    fun createPasscode(block: () -> Any) {
+    fun requestPasscodeAndBlock(block: () -> Any) {
         MainActivity.block = block
-    }
-
-    fun inputPasscode(block: () -> Any) {
-        MainActivity.block = block
+        startActivityForResult(IntentFor<PasscodeActivity>(this), REQUEST_FOR_BLOCK)
     }
 
     fun requestPermissionAndDownload(download: () -> Any) {
         MainActivity.download = download
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_FOR_DOWNLOAD)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        when (requestCode) {
+            REQUEST_FOR_BLOCK -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    block()
+                }
+            }
+            else -> super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

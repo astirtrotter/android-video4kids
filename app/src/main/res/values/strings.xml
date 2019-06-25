@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Video4Kids</string>
-    <string name="user_details" tools:ignore="MissingTranslation">Dear Users,\n\n \"Deedani_Ha\" application is a collection of short
+    <string name="user_details" tools:ignore="MissingTranslation">Dear Users,\n\n \"Deedani_Ha\" application is a
+        collection of short
         nostalgic and memorable useful videos. Many videos on internet are not suitable for kids and,
         it is also time consuming and sometimes very challenging to find out favorit videos.
         \n\nWe have collected a handfull of attractive and useful\nvideos in five categories of:
@@ -31,7 +32,8 @@
     <string name="downloding">Start Downloading ...</string>
     <string name="go_to_setting" tools:ignore="MissingTranslation">go to setting</string>
     <string name="denied_media_title" tools:ignore="MissingTranslation">Denied Permission to Store Files</string>
-    <string name="denied_media_msg" tools:ignore="MissingTranslation">You denied this media permission so you can not store downloaded files without this
+    <string name="denied_media_msg" tools:ignore="MissingTranslation">You denied this media permission so you can not
+        store downloaded files without this
         permission please go to setting and enable storage permission
     </string>
     <string name="con_change_passcode" tools:ignore="MissingTranslation">Confirm Your Passcode</string>
@@ -46,7 +48,9 @@
     <string name="contact_us_setting" tools:ignore="MissingTranslation">CONTACT US</string>
     <string name="change_passcode_setting" tools:ignore="MissingTranslation">CHANGE PASSCODE</string>
     <string name="grown_ups_only" tools:ignore="MissingTranslation">Grown-Ups Only</string>
-    <string name="to_access_please_enter_the_numbers_seven_five_seven_five" tools:ignore="MissingTranslation">To access please enter the numbers</string>
+    <string name="to_access_please_enter_the_numbers_seven_five_seven_five" tools:ignore="MissingTranslation">To access
+        please enter the numbers
+    </string>
     <string name="alert_title" tools:ignore="MissingTranslation">Alert</string>
     <string name="range_children" tools:ignore="MissingTranslation">Choose the Range</string>
     <string name="children" tools:ignore="MissingTranslation">For Children</string>
@@ -66,7 +70,8 @@
     <string name="perisan_new_pwd" tools:ignore="MissingTranslation">رمز عبور جدید را وارد کنید</string>
     <string name="perisan_old_pwd" tools:ignore="MissingTranslation">رمز عبور قدیمی را وارد کنید</string>
     //Anthor Language
-    <string name="perisan_user" tools:ignore="MissingTranslation">کاربران عزیز، \ n \ n \ "Deedani_Ha \" نرم افزار مجموعه ای از کوتاه است
+    <string name="perisan_user" tools:ignore="MissingTranslation">کاربران عزیز، \ n \ n \ "Deedani_Ha \" نرم افزار
+        مجموعه ای از کوتاه است
                 فیلم های دلپذیر و خاطره انگیز مفید است. بسیاری از فیلم ها در اینترنت برای بچه ها مناسب نیستند
                 همچنین زمان فیلمبرداری و گاهی اوقات بسیار دشوار برای پیدا کردن فیلمهای مورد علاقه است.
                 \ n \ n ما چندین ویدیو جذاب و مفید را در پنج دسته از موارد زیر جمع آوری کرده ایم:
@@ -94,7 +99,8 @@
     <string name="perisan_contact_us_setting" tools:ignore="MissingTranslation">تماس با ما</string>
     <string name="perisan_change_passcode_setting" tools:ignore="MissingTranslation">تغییر پدیده</string>
     <string name="perisan_grown_ups_only" tools:ignore="MissingTranslation">رشد فقط یو پی اس</string>
-    <string name="perisan_to_access_please_enter_the_numbers_seven_five_seven_five" tools:ignore="MissingTranslation">برای دسترسی لطفا شماره را وارد
+    <string name="perisan_to_access_please_enter_the_numbers_seven_five_seven_five" tools:ignore="MissingTranslation">
+        برای دسترسی لطفا شماره را وارد
         کنید
     </string>
     <string name="perisan_alert_title" tools:ignore="MissingTranslation">هشدار</string>

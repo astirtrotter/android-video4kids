@@ -72,12 +72,10 @@ class VideoListAdapter(private val activity: MainActivity,
         itemView.blockIV.onClick {
             val block = {
                 Pref.blockVideo(item.video_id!!)
+                items.removeAt(i)
+                notifyItemRemoved(i)
             }
-            if (Pref.passcode == null) {
-                activity.createPasscode(block)
-            } else {
-                activity.inputPasscode(block)
-            }
+            activity.requestPasscodeAndBlock(block)
         }
 
         itemView.shareIV.onClick {
@@ -95,7 +93,7 @@ class VideoListAdapter(private val activity: MainActivity,
                 Pref.unfavoriteVideo(item)
                 if (activity.bottomNavigation.selectedItemId == R.id.nav_favorite) {
                     items.removeAt(i)
-                    activity.recyclerView.adapter!!.notifyItemRemoved(i)
+                    notifyItemRemoved(i)
                     return@onClick
                 }
             }
