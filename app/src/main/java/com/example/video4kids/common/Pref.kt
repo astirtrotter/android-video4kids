@@ -22,4 +22,19 @@ object Pref : PreferenceHolder() {
         get() = isAll == null || isEnglish == null
     val path: String
         get() = "2".takeIf { isEnglish!! } ?: "1"
+    fun blockVideo(videoId: String): Boolean {
+        if (blockVideoIds.contains(videoId)) return false
+        blockVideoIds.add(videoId)
+        return true
+    }
+    fun favoriteVideo(item: VideoItem): Boolean {
+        if (item.isFav) return false
+        favVideoItems.add(item)
+        return true
+    }
+    fun unfavoriteVideo(item: VideoItem): Boolean {
+        if (!item.isFav) return false
+        favVideoItems.removeAll { it.video_id == item.video_id }
+        return true
+    }
 }
