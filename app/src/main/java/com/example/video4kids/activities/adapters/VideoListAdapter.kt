@@ -1,5 +1,6 @@
 package com.example.video4kids.activities.adapters
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.support.v4.content.ContextCompat
@@ -72,8 +73,17 @@ class VideoListAdapter(private val activity: MainActivity,
                 }
             }
 
-            itemView.shareIV.onClick {  }
-            itemView.likeIV.onClick {  }
+            itemView.shareIV.onClick {
+                val intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT, "http://mywork.promoletter.com/public/video/" + item.title.replace(" ", "_"))
+                }
+                activity.startActivity(Intent.createChooser(intent, "Share with"))
+            }
+
+            itemView.likeIV.onClick {
+
+            }
             itemView.downloadIV.onClick {  }
         }
     }
