@@ -72,8 +72,9 @@ class VideoListAdapter(private val activity: MainActivity,
         itemView.blockIV.onClick {
             val block = {
                 Pref.blockVideo(item.video_id!!)
-                items.removeAt(i)
-                notifyItemRemoved(i)
+                val index = items.indexOf(item)
+                items.removeAt(index)
+                notifyItemRemoved(index)
             }
             activity.requestPasscodeAndBlock(block)
         }
@@ -92,8 +93,9 @@ class VideoListAdapter(private val activity: MainActivity,
             } else {
                 Pref.unfavoriteVideo(item)
                 if (activity.bottomNavigation.selectedItemId == R.id.nav_favorite) {
-                    items.removeAt(i)
-                    notifyItemRemoved(i)
+                    val index = items.indexOf(item)
+                    items.removeAt(index)
+                    notifyItemRemoved(index)
                     return@onClick
                 }
             }
