@@ -14,6 +14,7 @@ import com.example.video4kids.common.Pref
 import com.example.video4kids.common.extensions.getMultiLangString
 import com.mcxiaoke.koi.ext.onClick
 import com.pawegio.kandroid.hide
+import com.pawegio.kandroid.runDelayed
 import kotlinx.android.synthetic.main.activity_passcode_screen.*
 import kotlinx.android.synthetic.main.inside_common_toolbar.*
 
@@ -92,7 +93,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         setpassid.onClick { gotoNextStep() }
         firsttextid.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().length >= 1) {
+                if (s.toString().isNotEmpty()) {
                     s.delete(1, s.length)
                     if (!TextUtils.isDigitsOnly(s.toString())) {
                         s.delete(0, 1)
@@ -105,14 +106,14 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
         firsttextid.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_DEL) {
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
                 firsttextid.setText("")
             }
             false
         }
         secondtextid.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().length >= 1) {
+                if (s.toString().isNotEmpty()) {
                     s.delete(1, s.length)
                     if (!TextUtils.isDigitsOnly(s.toString())) {
                         s.delete(0, 1)
@@ -125,7 +126,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
         secondtextid.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_DEL) {
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
                 if (secondtextid.text.toString().isEmpty()) {
                     firsttextid.setText("")
                     firsttextid.requestFocus()
@@ -137,7 +138,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         }
         thirdtextid.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().length >= 1) {
+                if (s.toString().isNotEmpty()) {
                     s.delete(1, s.length)
                     if (!TextUtils.isDigitsOnly(s.toString())) {
                         s.delete(0, 1)
@@ -150,7 +151,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
         thirdtextid.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_DEL) {
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
                 if (thirdtextid.text.toString().isEmpty()) {
                     secondtextid.setText("")
                     secondtextid.requestFocus()
@@ -162,7 +163,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         }
         forthtextid.addTextChangedListener(object: TextWatcher {
             override fun afterTextChanged(s: Editable) {
-                if (s.toString().length >= 1) {
+                if (s.toString().isNotEmpty()) {
                     s.delete(1, s.length)
                     if (!TextUtils.isDigitsOnly(s.toString())) {
                         s.delete(0, 1)
@@ -174,7 +175,7 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })
         forthtextid.setOnKeyListener { v, keyCode, event ->
-            if (keyCode == KeyEvent.KEYCODE_DEL) {
+            if (keyCode == KeyEvent.KEYCODE_DEL && event.action == KeyEvent.ACTION_DOWN) {
                 if (forthtextid.text.toString().isEmpty()) {
                     thirdtextid.setText("")
                     thirdtextid.requestFocus()
@@ -191,6 +192,11 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
                 secondtextid.text.toString() +
                 thirdtextid.text.toString() +
                 forthtextid.text.toString()
+        if (inputPasscode.length != 4) {
+            Toast.makeText(this@PasscodeActivity, "Invalid Input!", Toast.LENGTH_LONG).show()
+            return
+        }
+
         step++
 
         val checkWithPrefPasscode = {
@@ -260,7 +266,9 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         secondtextid.setText("")
         thirdtextid.setText("")
         forthtextid.setText("")
-        firsttextid.requestFocus()
+        runDelayed(1) {
+            firsttextid.requestFocus()
+        }
     }
 
 }
