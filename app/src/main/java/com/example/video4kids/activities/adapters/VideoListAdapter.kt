@@ -1,9 +1,10 @@
 package com.example.video4kids.activities.adapters
 
+import android.Manifest
 import android.app.DownloadManager
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.net.Uri
@@ -23,82 +24,88 @@ import com.example.video4kids.common.Pref
 import com.example.video4kids.common.backend.api.VideoItem
 import com.example.video4kids.common.extensions.gotoAnotherActivity
 import com.mcxiaoke.koi.ext.onClick
-import com.pawegio.kandroid.alert
 import com.pawegio.kandroid.hide
 import com.pawegio.kandroid.show
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.adapter_learn.view.*
 import java.io.File
 
 class VideoListAdapter(private val activity: MainActivity,
-                       private val items: ArrayList<VideoItem>) : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
+                       private val items: ArrayList<VideoItem>) : RecyclerView.Adapter<VideoListAdapter.MyViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, i: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, i: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_learn, parent, false)
-        return ViewHolder(view)
+        return MyViewHolder(view)
     }
 
     override fun getItemCount() = items.size
 
-    override fun onBindViewHolder(viewHolder: ViewHolder, i: Int) {
-        viewHolder.representData(items[i], activity)
-    }
+    override fun onBindViewHolder(viewHolder: MyViewHolder, i: Int) {
+        val item = items[i]
+        val itemView = viewHolder.itemView
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun representData(item: VideoItem, activity: MainActivity) {
+        itemView.likeIV.setColorFilter(
+            ContextCompat.getColor(itemView.context, R.color.red_color).takeIf { item.isFav } ?: Color.DKGRAY,
+            PorterDuff.Mode.MULTIPLY)
+        itemView.titleTV.text = item.title
+        if (item.videoCount > 0) {
+            itemView.notificationValue.show()
+            var strCount = item.videoCount.toString()
+            if (strCount.length == 1) strCount = " ${strCount} "
+            itemView.notificationValue.text = strCount
+            itemView.notificationValue.onClick {
+                activity.gotoAnotherActivity<RelatedVideosActivity>(false,
+                    Pair("videoTitle", activity.kind),
+                    Pair("tagSlug", item.tagSlug))
+            }
+        } else {
+            itemView.notificationValue.hide(true)
+        }
+        Glide.with(activity)
+            .load("https://mywork.promoletter.com/storage/app/public/images/" + item.imagePath)
+            .into(itemView.videoIV)
+        itemView.videoIV.onClick {
+            activity.gotoAnotherActivity<RelatedVideosActivity>(false,
+                Pair("imagePath", item.imagePath))
+        }
+
+        itemView.blockIV.onClick {
+            val block = {
+                Pref.blockVideo(item.video_id!!)
+            }
+            if (Pref.passcode == null) {
+                activity.createPasscode(block)
+            } else {
+                activity.inputPasscode(block)
+            }
+        }
+
+        itemView.shareIV.onClick {
+            val intent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT, "http://mywork.promoletter.com/public/video/" + item.title.replace(" ", "_"))
+            }
+            activity.startActivity(Intent.createChooser(intent, "Share with"))
+        }
+
+        itemView.likeIV.onClick {
+            if (!item.isFav) {
+                Pref.favoriteVideo(item)
+            } else {
+                Pref.unfavoriteVideo(item)
+                if (activity.bottomNavigation.selectedItemId == R.id.nav_favorite) {
+                    items.removeAt(i)
+                    activity.recyclerView.adapter!!.notifyItemRemoved(i)
+                    return@onClick
+                }
+            }
             itemView.likeIV.setColorFilter(
                 ContextCompat.getColor(itemView.context, R.color.red_color).takeIf { item.isFav } ?: Color.DKGRAY,
                 PorterDuff.Mode.MULTIPLY)
-            itemView.titleTV.text = item.title
-            if (item.videoCount > 0) {
-                itemView.notificationValue.show()
-                var strCount = item.videoCount.toString()
-                if (strCount.length == 1) strCount = " ${strCount} "
-                itemView.notificationValue.text = strCount
-                itemView.notificationValue.onClick {
-                    activity.gotoAnotherActivity<RelatedVideosActivity>(false,
-                        Pair("videoTitle", activity.kind),
-                        Pair("tagSlug", item.tagSlug))
-                }
-            } else {
-                itemView.notificationValue.hide(true)
-            }
-            Glide.with(activity)
-                .load("https://mywork.promoletter.com/storage/app/public/images/" + item.imagePath)
-                .into(itemView.videoIV)
-            itemView.videoIV.onClick {
-                activity.gotoAnotherActivity<RelatedVideosActivity>(false,
-                    Pair("imagePath", item.imagePath))
-            }
+        }
 
-            itemView.blockIV.onClick {
-                val block = {
-                    Pref.blockVideo(item.video_id!!)
-                }
-                if (Pref.passcode == null) {
-                    activity.createPasscode(block)
-                } else {
-                    activity.inputPasscode(block)
-                }
-            }
-
-            itemView.shareIV.onClick {
-                val intent = Intent(Intent.ACTION_SEND).apply {
-                    type = "text/plain"
-                    putExtra(Intent.EXTRA_TEXT, "http://mywork.promoletter.com/public/video/" + item.title.replace(" ", "_"))
-                }
-                activity.startActivity(Intent.createChooser(intent, "Share with"))
-            }
-
-            itemView.likeIV.onClick {
-                if (item.isFav) {
-                    Pref.favoriteVideo(item)
-                } else {
-                    Pref.unfavoriteVideo(item)
-                }
-                activity.loadData()
-            }
-
-            itemView.downloadIV.onClick {
+        itemView.downloadIV.onClick {
+            val download = {
                 val downloadManager = activity.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
                 val Download_Uri = Uri.parse("https://mywork.promoletter.com/storage/app/public/videos/${item.videoPath}")
                 val builder = AlertDialog.Builder(activity)
@@ -129,6 +136,21 @@ class VideoListAdapter(private val activity: MainActivity,
                 builder.setNegativeButton(activity.resources.getText(R.string.no)) { dialog, id -> dialog.cancel() }
                 builder.show()
             }
+
+            // check write permission
+            if (ContextCompat.checkSelfPermission(
+                    activity,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                activity.requestPermissionAndDownload(download)
+            } else {
+                download()
+            }
         }
+    }
+
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
     }
 }

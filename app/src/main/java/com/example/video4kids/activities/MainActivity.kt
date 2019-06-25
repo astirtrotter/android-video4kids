@@ -1,9 +1,13 @@
 package com.example.video4kids.activities
 
+import android.Manifest
 import android.app.ProgressDialog
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
@@ -19,6 +23,13 @@ import kotlinx.android.synthetic.main.inside_common_toolbar.view.*
 import rx.subscriptions.CompositeSubscription
 
 class MainActivity : AppCompatActivity(), IMultiLangScreen {
+    companion object {
+        private val REQUEST_FOR_DOWNLOAD = 101
+        private val REQUEST_FOR_PASSCODE = 102
+        private lateinit var download: () -> Any
+        private lateinit var block: () -> Any
+    }
+
     private var selectedNavItemId: Int = -1
         set(value) {
             if (field == value) return
@@ -97,7 +108,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             ))
     }
 
-    private fun updateRecyclerView() {
+    fun updateRecyclerView() {
         if (progress.isShowing) progress.dismiss()
 
         if (items.size == 0 && selectedNavItemId != R.id.nav_favorite) {
@@ -120,10 +131,30 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
     }
 
     fun createPasscode(block: () -> Any) {
-
+        MainActivity.block = block
     }
 
     fun inputPasscode(block: () -> Any) {
+        MainActivity.block = block
+    }
 
+    fun requestPermissionAndDownload(download: () -> Any) {
+        MainActivity.download = download
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), REQUEST_FOR_DOWNLOAD)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        when (requestCode) {
+            REQUEST_FOR_DOWNLOAD -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    download()
+                } else {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        shouldShowRequestPermissionRationale(permissions[0])
+                    }
+                }
+            }
+            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
     }
 }
