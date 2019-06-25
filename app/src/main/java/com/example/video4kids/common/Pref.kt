@@ -13,8 +13,8 @@ object Pref : PreferenceHolder() {
     var isForAllAge: Boolean? by bindToPreferenceFieldNullable()
     var isEnglish: Boolean? by bindToPreferenceFieldNullable()
     var passcode: String? by bindToPreferenceFieldNullable()
-    var blockVideoIds: ArrayList<String>? by bindToPreferenceFieldNullable()
-    var favVideoItems: ArrayList<VideoItem> by bindToPreferenceField(ArrayList())
+    var blockVideoIds: List<String> by bindToPreferenceField(arrayListOf())
+    var favVideoItems: List<VideoItem> by bindToPreferenceField(arrayListOf())
 
     // exposed virtual properties
 
@@ -23,19 +23,26 @@ object Pref : PreferenceHolder() {
     val path: String
         get() = "2".takeIf { isEnglish!! } ?: "1"
     fun blockVideo(videoId: String): Boolean {
-        if (blockVideoIds == null) blockVideoIds = arrayListOf()
-        if (blockVideoIds!!.contains(videoId)) return false
-        blockVideoIds!!.add(videoId)
+        if (blockVideoIds.contains(videoId)) return false
+        blockVideoIds = ArrayList<String>().apply {
+            addAll(blockVideoIds)
+            add(videoId)
+        }.toList()
         return true
     }
     fun favoriteVideo(item: VideoItem): Boolean {
         if (item.isFav) return false
-        favVideoItems.add(item)
+        favVideoItems = ArrayList<VideoItem>().apply {
+            addAll(favVideoItems)
+            add(item)
+        }
         return true
     }
     fun unfavoriteVideo(item: VideoItem): Boolean {
         if (!item.isFav) return false
-        favVideoItems.removeAll { it.video_id == item.video_id }
+        favVideoItems = ArrayList<VideoItem>().apply {
+            favVideoItems.filter { it.video_id != item.video_id }
+        }
         return true
     }
 }

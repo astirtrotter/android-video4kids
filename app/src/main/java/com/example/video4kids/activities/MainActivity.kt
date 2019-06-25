@@ -20,6 +20,7 @@ import com.example.video4kids.common.Pref
 import com.example.video4kids.common.backend.BackendManager
 import com.example.video4kids.common.backend.api.VideoItem
 import com.example.video4kids.common.extensions.getMultiLangString
+import com.mcxiaoke.koi.log.logd
 import com.pawegio.kandroid.IntentFor
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.inside_common_toolbar.view.*
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             .subscribe(
                 { res ->
                     items = ArrayList(res.filter { item ->
-                        !(Pref.blockVideoIds?.contains(item.video_id!!) ?: false)
+                        !(Pref.blockVideoIds.contains(item.video_id!!))
                     })
                 },
                 { e ->
@@ -112,6 +113,8 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
     }
 
     fun updateRecyclerView() {
+        logd("================= blocked videos: ${Pref.blockVideoIds}")
+
         if (progress.isShowing) progress.dismiss()
 
         if (items.size == 0 && selectedNavItemId != R.id.nav_favorite) {
