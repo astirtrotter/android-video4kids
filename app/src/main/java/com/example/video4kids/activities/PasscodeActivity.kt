@@ -26,9 +26,9 @@ class PasscodeActivity : AppCompatActivity(), IMultiLangScreen {
         private var isCreate = false
         private var newPasscode = ""
 
-        fun initStep() {
+        fun initStep(isChange: Boolean = false) {
             step = -1
-            isCreate = Pref.passcode == null
+            isCreate = isChange || Pref.passcode == null
             newPasscode = ""
         }
     }

@@ -135,11 +135,20 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
                                 gotoAnotherActivity<AgeSelectionActivity>()
                             }
                             if (Pref.passcode == null) {
-                                startActivityForResult(IntentFor<PasscodeActivity>(this@MainActivity), REQUEST_FOR_CHANGEAGE)
+                                PasscodeActivity.initStep()
+                                startActivityForResult(
+                                    IntentFor<PasscodeActivity>(this@MainActivity),
+                                    REQUEST_FOR_CHANGEAGE
+                                )
+                            } else {
+                                changeAge()
                             }
                         }
                         btnContactUs.onClick { gotoAnotherActivity<HelpActivity>(false) }
-                        btnChangePasscode.onClick { gotoAnotherActivity<PasscodeActivity>(false) }
+                        btnChangePasscode.onClick {
+                            PasscodeActivity.initStep(true)
+                            gotoAnotherActivity<PasscodeActivity>(false)
+                        }
                         btnLogout.onClick {
                             Pref.clean()
                             finish()
