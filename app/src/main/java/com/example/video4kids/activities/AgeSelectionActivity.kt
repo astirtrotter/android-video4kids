@@ -22,11 +22,11 @@ class AgeSelectionActivity : AppCompatActivity(), IMultiLangScreen {
             gotoAnotherActivity<MainActivity>()
         }
         kindChildren.onClick {
-            Pref.isAll = false
+            Pref.isForAllAge = false
             navigate()
         }
         kindAll.onClick {
-            Pref.isAll = true
+            Pref.isForAllAge = true
             navigate()
         }
     }
