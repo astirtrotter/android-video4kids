@@ -135,6 +135,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
 
     fun requestPasscodeAndBlock(block: () -> Any) {
         MainActivity.block = block
+        PasscodeActivity.initStep()
         startActivityForResult(IntentFor<PasscodeActivity>(this), REQUEST_FOR_BLOCK)
     }
 
