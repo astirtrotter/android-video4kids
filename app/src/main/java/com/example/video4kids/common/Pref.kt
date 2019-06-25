@@ -37,4 +37,11 @@ object Pref : PreferenceHolder() {
         favVideoItems = ArrayList(favVideoItems.filter { it.video_id != item.video_id })
         return true
     }
+    fun clean() {
+        isForAllAge = null
+        isEnglish = null
+        passcode = null
+        blockVideoIds = arrayListOf()
+        favVideoItems = arrayListOf()
+    }
 }
