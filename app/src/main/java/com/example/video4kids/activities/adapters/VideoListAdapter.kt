@@ -1,13 +1,20 @@
 package com.example.video4kids.activities.adapters
 
+import android.app.DownloadManager
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.net.Uri
+import android.os.Environment
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.video4kids.R
 import com.example.video4kids.activities.MainActivity
@@ -20,6 +27,7 @@ import com.pawegio.kandroid.alert
 import com.pawegio.kandroid.hide
 import com.pawegio.kandroid.show
 import kotlinx.android.synthetic.main.adapter_learn.view.*
+import java.io.File
 
 class VideoListAdapter(private val activity: MainActivity,
                        private val items: ArrayList<VideoItem>) : RecyclerView.Adapter<VideoListAdapter.ViewHolder>() {
@@ -91,7 +99,35 @@ class VideoListAdapter(private val activity: MainActivity,
             }
 
             itemView.downloadIV.onClick {
-
+                val downloadManager = activity.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+                val Download_Uri = Uri.parse("https://mywork.promoletter.com/storage/app/public/videos/${item.videoPath}")
+                val builder = AlertDialog.Builder(activity)
+                builder.setMessage(activity.resources.getText(R.string.areyousure))
+                builder.setPositiveButton(
+                    activity.resources.getText(R.string.yes) //end onClick
+                ) { dialog, id ->
+                    val sdImageMainDirectory: File
+                    val root =
+                        File(Environment.getExternalStorageDirectory().toString() + File.separator + "Video4Kids" + File.separator)
+                    root.mkdirs()
+                    sdImageMainDirectory = File(root, item.title + ".mp4")
+                    if (sdImageMainDirectory.exists()) {
+                        Toast.makeText(activity, activity.resources.getString(R.string.before), Toast.LENGTH_SHORT).show()
+                    } else {
+                        val request = DownloadManager.Request(Download_Uri)
+                        //Setting title of request
+                        val songname = item.title
+                        request.setTitle(songname)
+                        //Setting description of request
+                        request.setDescription(" ")
+                        request.setDestinationInExternalPublicDir("/Video4Kids", songname + ".mp4")
+                        Toast.makeText(activity, activity.resources.getString(R.string.downloding), Toast.LENGTH_SHORT).show()
+                        //Enqueue download and save the referenceId
+                        downloadManager.enqueue(request)
+                    }
+                }
+                builder.setNegativeButton(activity.resources.getText(R.string.no)) { dialog, id -> dialog.cancel() }
+                builder.show()
             }
         }
     }
