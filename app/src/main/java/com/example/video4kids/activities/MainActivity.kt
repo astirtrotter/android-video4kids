@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
             .subscribe(
                 { res ->
                     items = ArrayList(res.filter { item ->
-                        !Pref.blockVideoIds.contains(item.id!!)
+                        !Pref.blockVideoIds.contains(item.video_id!!)
                     })
                 },
                 { e ->
