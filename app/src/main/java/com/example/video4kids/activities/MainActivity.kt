@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.example.video4kids.R
-import com.example.video4kids.activities.adapters.LearningAdapter
+import com.example.video4kids.activities.adapters.VideoListAdapter
 import com.example.video4kids.activities.interfaces.IMultiLangScreen
 import com.example.video4kids.common.Pref
 import com.example.video4kids.common.backend.BackendManager
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
         }
 
         // adapter
-        recyclerView.adapter = LearningAdapter(items)
+        recyclerView.adapter = VideoListAdapter(this, items, learntoolbar.titletext.text.toString())
     }
 
     private fun showAlert(msg: String) {

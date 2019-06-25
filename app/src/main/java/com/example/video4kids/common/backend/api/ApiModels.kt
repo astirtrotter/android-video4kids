@@ -30,7 +30,7 @@ data class VideoItem(val id: Int?,
                      val age_id: Int?,
                      val video_title: String?,
                      val video_description: String?,
-                     val thumbnail_url: String?,
+                     val thumbnail_url: String,
                      val video_url: String?,
 //                     val publish_at: Any?,
 //                     val created_at: String?,
@@ -45,14 +45,14 @@ data class VideoItem(val id: Int?,
         get() = Pref.favVideoItems.any { it.video_id == video_id }
     val title: String?
         get() = video_description.takeIf { Pref.isEnglish!! } ?: video_title
-    val relatedVideoCount: Int?
-        get() = 0.takeIf { tagged?.isEmpty() ?: true } ?: tagged!![0].tag!!.count
+    val relatedVideoCount: Int
+        get() = 0.takeIf { tagged?.isEmpty() ?: true } ?: tagged!![0].tag!!.count ?: 0
     val videoPath: String?
         get() = video_url
-    val videoCount: Int?
+    val videoCount: Int
         get() = relatedVideoCount
-    val imagePath: String?
+    val imagePath: String
         get() = thumbnail_url
-    val tagSlug: String?
-        get() = "".takeIf { tagged?.isEmpty() ?: true } ?: tagged!![0].tag!!.slug
+    val tagSlug: String
+        get() = "".takeIf { tagged?.isEmpty() ?: true } ?: tagged!![0].tag!!.slug!!
 }

@@ -6,9 +6,10 @@ import com.example.video4kids.common.Pref
 import com.pawegio.kandroid.IntentFor
 import com.pawegio.kandroid.start
 
-inline fun <reified T: Activity> Activity.gotoAnotherActivity(isToFinish: Boolean = true) {
+inline fun <reified T: Activity> Activity.gotoAnotherActivity(isToFinish: Boolean = true, vararg extras: Pair<String, String>) {
     val intent = IntentFor<T>(this)
     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK.or(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+    extras.forEach { intent.putExtra(it.first, it.second) }
     intent.start(this)
 
     if (isToFinish) finish()
