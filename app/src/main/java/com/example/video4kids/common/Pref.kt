@@ -10,7 +10,7 @@ object Pref : PreferenceHolder() {
         serializer = GsonSerializer(Gson())
     }
 
-    var isAll: Boolean? by bindToPreferenceFieldNullable()
+    var isForAllAge: Boolean? by bindToPreferenceFieldNullable()
     var isEnglish: Boolean? by bindToPreferenceFieldNullable()
     var passcode: String? by bindToPreferenceFieldNullable()
     var blockVideoIds: ArrayList<String> by bindToPreferenceField(ArrayList())
@@ -19,7 +19,7 @@ object Pref : PreferenceHolder() {
     // exposed virtual properties
 
     val isFirstLaunch: Boolean
-        get() = isAll == null || isEnglish == null
+        get() = isForAllAge == null || isEnglish == null
     val path: String
         get() = "2".takeIf { isEnglish!! } ?: "1"
     fun blockVideo(videoId: String): Boolean {
