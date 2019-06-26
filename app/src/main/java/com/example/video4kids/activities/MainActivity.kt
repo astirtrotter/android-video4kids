@@ -121,7 +121,7 @@ class MainActivity : AppCompatActivity(), IMultiLangScreen {
                     requestWindowFeature(Window.FEATURE_NO_TITLE)
                     setCancelable(true)
                     setContentView(R.layout.settings_custom_dialog)
-                    window!!.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+                    window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                     setOnShowListener {
                         btnChangeLang.text = getMultiLangString(R.string.change_language, R.string.perisan_change_language)
                         btnChangeAge.text = getMultiLangString(R.string.select_age_selection, R.string.perisan_select_age_selection)
