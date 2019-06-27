@@ -25,11 +25,12 @@ android {
         applicationId "com.example.video4kids"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "v1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
         multiDexEnabled  true
+        setProperty("archivesBaseName", "video4kids-$versionName.$versionCode")
     }
     buildTypes {
         release {

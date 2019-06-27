@@ -21,28 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/learntoolbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/layBottom"/>
-
-    <LinearLayout
-        android:id="@+id/layBottom"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/margin_4x"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_gravity="bottom"
-            android:background="@android:color/holo_red_dark"
-            app:elevation="8dp"
-            app:itemIconTint="@android:color/white"
-            app:itemTextColor="@android:color/white"
-            app:menu="@menu/bottom_navigation_main" />
-
-    </LinearLayout>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
